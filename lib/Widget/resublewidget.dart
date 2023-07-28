@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tharwat2/Widget/Editnotescreen.dart';
+import 'package:tharwat2/Widget/NotesAppBar.dart';
 
 class SearchCustomIcon extends StatelessWidget {
 
-
+final IconData my_icon;
   double hight;
 double width;
 
-   SearchCustomIcon({required this.hight, required this.width});
+   SearchCustomIcon({required this.hight, required this.width ,required this.my_icon});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ double width;
 
 
       ),
-      child: Center(child: Icon(Icons.search,size: 28,)),
+      child: Center(child: Icon(my_icon,size: 28,)),
 
 
     );
@@ -223,7 +224,23 @@ class Editviewbody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    return  Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 24),
+      child: Column(
+        children: [
+          SizedBox(height: 16),
+          GestureDetector(
+              onTap: (){Navigator.pop(context);},
+              child: CustomAppbar(title: 'Edit Note',icon: Icons.edit)),
+          SizedBox(height: 30),
+          Customtextfield(hintext: 'Title',maxline: 1),
+          SizedBox(height: 10),
+          Customtextfield(hintext: 'Container',maxline: 5),
+
+
+        ],
+      ),
+    );
   }
 }
 

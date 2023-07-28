@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tharwat2/Widget/NotesAppBar.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
 
 class Editnoteview extends StatelessWidget {
@@ -9,6 +10,7 @@ class Editnoteview extends StatelessWidget {
 
 
     return const Scaffold(
+
       body: Editviewbody(),
 
     );
