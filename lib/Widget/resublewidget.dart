@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tharwat2/Widget/Editnotescreen.dart';
 
 class SearchCustomIcon extends StatelessWidget {
 
@@ -32,47 +33,53 @@ class NoteListvieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      padding:EdgeInsets.only(top:24,bottom: 24,left: 16 ) ,
-      decoration: BoxDecoration(color: Color(0xffFFCC80),
-      borderRadius: BorderRadius.circular(16),
+    return  GestureDetector(
+      onTap: (){
+        
+        Navigator.push(context,MaterialPageRoute(builder: (context) =>Editnoteview() ,));
+      },
+      child: Container(
+        padding:EdgeInsets.only(top:24,bottom: 24,left: 16 ) ,
+        decoration: BoxDecoration(color: Color(0xffFFCC80),
+        borderRadius: BorderRadius.circular(16),
 
 
 
-      ),
+        ),
 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
 
-        children: [
-          ListTile(
+          children: [
+            ListTile(
 
 
-            title: Padding(
-              padding: const EdgeInsets.only(top: 16,bottom: 16),
-              child: Text('Flutter Tips',style: TextStyle(color: Colors.black,fontFamily:'Poppins' ,fontSize: 25 )),
+              title: Padding(
+                padding: const EdgeInsets.only(top: 16,bottom: 16),
+                child: Text('Flutter Tips',style: TextStyle(color: Colors.black,fontFamily:'Poppins' ,fontSize: 25 )),
+              ),
+              subtitle:
+
+              Text('Build your carres with jamel alhamd',style: TextStyle(color: Colors.black.withOpacity(0.5),fontSize: 18)),
+              trailing:IconButton(onPressed:(){},
+
+                icon: Icon(Icons.delete,color: Colors.black,size: 30),
+
+              ) ,
+
+
+
             ),
-            subtitle:
+            Padding(
+              padding: const EdgeInsets.only(right: 24),
+              child: Text('Janyary 23,2023',style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black.withOpacity(.5))),
+            )
+          ],
+        ),
 
-            Text('Build your carres with jamel alhamd',style: TextStyle(color: Colors.black.withOpacity(0.5),fontSize: 18)),
-            trailing:IconButton(onPressed:(){},
-
-              icon: Icon(Icons.delete,color: Colors.black,size: 30),
-
-            ) ,
-
-
-
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 24),
-            child: Text('Janyary 23,2023',style: TextStyle(
-                fontSize: 18,
-                color: Colors.black.withOpacity(.5))),
-          )
-        ],
       ),
-
     );
   }
 }
@@ -210,3 +217,13 @@ class  CostumButtom extends StatelessWidget {
     );
   }
 }
+
+class Editviewbody extends StatelessWidget {
+  const Editviewbody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container();
+  }
+}
+
