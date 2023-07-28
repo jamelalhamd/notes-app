@@ -67,7 +67,7 @@ class NoteListvieItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 24),
             child: Text('Janyary 23,2023',style: TextStyle(
-                fontSize: 14,
+                fontSize: 18,
                 color: Colors.black.withOpacity(.5))),
           )
         ],
@@ -78,11 +78,21 @@ class NoteListvieItem extends StatelessWidget {
 }
 
 class  Notelistview extends StatelessWidget {
-  const  Notelistview({super.key});
+    Notelistview({super.key});
 
+ final date=const [
+   Colors.blue,
+   Colors.amber,
+   Colors.deepOrangeAccent,
+   Colors.greenAccent
+
+
+ ];
+int i=0;
   @override
   Widget build(BuildContext context) {
     return  ListView.builder(
+
       itemCount: 50,
 
 

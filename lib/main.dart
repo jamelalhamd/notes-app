@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tharwat2/NotesView.dart';
+import 'package:tharwat2/Widget/NotesBody.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,16 @@ brightness: Brightness.dark,
         fontFamily: 'ssets/fonts/Poppins-Regular.ttf'
 
       ),
-      home: NotesView(),
+      home: Scaffold(
+
+        body: NotesBody(),
+        floatingActionButton: FloatingActionButton(onPressed: (){},
+        child: Icon(Icons.add),
+        ),
+      ),
+
+
+
     );
   }
 }
