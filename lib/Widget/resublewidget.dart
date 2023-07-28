@@ -91,18 +91,33 @@ class  Notelistview extends StatelessWidget {
 int i=0;
   @override
   Widget build(BuildContext context) {
-    return  ListView.builder(
+    return  Padding(
+      padding:  EdgeInsets.symmetric( vertical: 16),
+      child: ListView.builder(
+       padding: EdgeInsets.zero,
 
-      itemCount: 50,
-
-
-        itemBuilder: (context, index) =>Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: NoteListvieItem(),
-        ) ,
+        itemCount: 50,
 
 
+          itemBuilder: (context, index) =>Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: NoteListvieItem(),
+          ) ,
+
+
+      ),
     );
   }
 }
+
+ class  Addshowbotomsheet extends StatelessWidget {
+   const  Addshowbotomsheet({super.key});
+
+   @override
+   Widget build(BuildContext context) {
+     return  Container();
+   }
+ }
+
+
 

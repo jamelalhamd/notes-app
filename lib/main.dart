@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tharwat2/NotesView.dart';
 import 'package:tharwat2/Widget/NotesBody.dart';
+import 'package:tharwat2/Widget/home.dart';
+import 'package:tharwat2/Widget/resublewidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +22,13 @@ brightness: Brightness.dark,
         fontFamily: 'ssets/fonts/Poppins-Regular.ttf'
 
       ),
-      home: Scaffold(
+      home:
 
-        body: NotesBody(),
-        floatingActionButton: FloatingActionButton(onPressed: (){},
-        child: Icon(Icons.add),
-        ),
+      Scaffold(
+
+        body: NoteHome(),
+
+
       ),
 
 
