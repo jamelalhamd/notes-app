@@ -118,13 +118,18 @@ int i=0;
      return  Container(
        child: Padding(
          padding: const EdgeInsets.symmetric(horizontal: 16),
-         child:   Column(
-           children: [
-             SizedBox(height: 32),
-             Customtextfield(hintext: "Titel"),
-             SizedBox(height: 16),
-             Customtextfield(hintext: "containts",maxline: 5),
-           ],
+         child: SingleChildScrollView(
+           child: const  Column(
+             children: [
+               SizedBox(height: 32),
+               Customtextfield(hintext: "Titel"),
+               SizedBox(height: 16),
+               Customtextfield(hintext: "containts",maxline: 5),
+               SizedBox(height: 20),
+               CostumButtom(),
+               SizedBox(height: 20),
+             ],
+           ),
          ),
        ),
 
@@ -153,6 +158,7 @@ int i=0;
 
 
        decoration: InputDecoration(
+
 
          hintText: hintext,
          hintStyle: TextStyle(color: Kprimarycolor),
@@ -188,3 +194,19 @@ int i=0;
 
 
 const Color Kprimarycolor=Color(0xff62FCD7);
+
+
+class  CostumButtom extends StatelessWidget {
+  const  CostumButtom({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(color: Kprimarycolor,borderRadius: BorderRadius.circular(16)),
+
+      width: MediaQuery.of(context).size.width,
+      height: 60,
+      child:const Center(child: Text(" Add The Note",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),)),
+    );
+  }
+}
