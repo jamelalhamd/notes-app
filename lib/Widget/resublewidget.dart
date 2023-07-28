@@ -118,10 +118,12 @@ int i=0;
      return  Container(
        child: Padding(
          padding: const EdgeInsets.symmetric(horizontal: 16),
-         child: Column(
+         child:   Column(
            children: [
              SizedBox(height: 32),
-             Customtextfield(),
+             Customtextfield(hintext: "Titel"),
+             SizedBox(height: 16),
+             Customtextfield(hintext: "containts",maxline: 5),
            ],
          ),
        ),
@@ -132,7 +134,14 @@ int i=0;
  }
 
  class Customtextfield extends StatelessWidget {
-   const Customtextfield({super.key});
+
+
+
+    const Customtextfield({super.key,required this.hintext, this.maxline=1});
+
+  final String hintext;
+   final int maxline;
+
 
    @override
    Widget build(BuildContext context) {
@@ -140,11 +149,12 @@ int i=0;
      return TextField(
 
        cursorColor:Kprimarycolor,
+       maxLines: maxline,
 
 
        decoration: InputDecoration(
 
-         hintText: "Title",
+         hintText: hintext,
          hintStyle: TextStyle(color: Kprimarycolor),
 
          border: buildOutlineInputBorderCustomer(
