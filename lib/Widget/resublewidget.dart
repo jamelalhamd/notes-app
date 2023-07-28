@@ -116,10 +116,14 @@ int i=0;
    @override
    Widget build(BuildContext context) {
      return  Container(
-       child: Column(
-         children: [
-
-         ],
+       child: Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 16),
+         child: Column(
+           children: [
+             SizedBox(height: 32),
+             Customtextfield(),
+           ],
+         ),
        ),
 
 
@@ -127,5 +131,50 @@ int i=0;
    }
  }
 
+ class Customtextfield extends StatelessWidget {
+   const Customtextfield({super.key});
+
+   @override
+   Widget build(BuildContext context) {
+
+     return TextField(
+
+       cursorColor:Kprimarycolor,
 
 
+       decoration: InputDecoration(
+
+         hintText: "Title",
+         hintStyle: TextStyle(color: Kprimarycolor),
+
+         border: buildOutlineInputBorderCustomer(
+
+       ),
+
+         enabledBorder: buildOutlineInputBorderCustomer(),
+         focusedBorder: buildOutlineInputBorderCustomer2(),
+
+       ),
+     );
+   }
+
+
+   OutlineInputBorder buildOutlineInputBorderCustomer() {
+     return OutlineInputBorder(borderRadius: BorderRadius.circular(16),
+         borderSide: BorderSide(color: Colors.white));
+   }
+
+   OutlineInputBorder buildOutlineInputBorderCustomer2() {
+     return OutlineInputBorder(borderRadius: BorderRadius.circular(16),
+         borderSide: BorderSide(color: Kprimarycolor));
+   }
+
+   OutlineInputBorder buildOutlineInputBorderCustomer1() {
+     return OutlineInputBorder(borderRadius: BorderRadius.circular(16),
+         borderSide: BorderSide(color: Kprimarycolor));
+   }
+ }
+
+
+
+const Color Kprimarycolor=Color(0xff62FCD7);
