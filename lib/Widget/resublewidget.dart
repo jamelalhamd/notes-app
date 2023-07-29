@@ -231,10 +231,10 @@ class Editviewbody extends StatelessWidget {
           SizedBox(height: 16),
           GestureDetector(
               onTap: (){Navigator.pop(context);},
-              child: CustomAppbar(title: 'Edit Note',icon: Icons.edit)),
-          SizedBox(height: 30),
+              child: CustomAppbar(title: 'Edit Note',icon: Icons.edit_outlined)),
+          SizedBox(height: 50),
           Customtextfield(hintext: 'Title',maxline: 1),
-          SizedBox(height: 10),
+          SizedBox(height: 16),
           Customtextfield(hintext: 'Container',maxline: 5),
 
 
