@@ -7,9 +7,12 @@ import 'package:tharwat2/Widget/home.dart';
 import 'package:tharwat2/Widget/models/models.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
+import 'package:tharwat2/cubit/simpe_bloc_observer.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
+
+  Bloc.observer=SimpleBlockObserver();
 
   await Hive.openBox(KNoteBox);
   Hive.registerAdapter(
