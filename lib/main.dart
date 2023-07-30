@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:tharwat2/NotesView.dart';
-import 'package:tharwat2/Widget/NotesBody.dart';
+
 import 'package:tharwat2/Widget/home.dart';
 import 'package:tharwat2/Widget/models/models.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
