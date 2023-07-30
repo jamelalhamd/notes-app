@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:tharwat2/NotesView.dart';
 import 'package:tharwat2/Widget/NotesBody.dart';
 import 'package:tharwat2/Widget/home.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
 
-void main() {
+Future<void> main() async {
+
+  await Hive.initFlutter();
+  
+  await Hive.openBox(KNoteBox);  //const KNoteBox='Note Box'; in const page
   runApp(const MyApp());
 }
 
