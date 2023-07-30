@@ -124,20 +124,10 @@ int i=0;
    @override
    Widget build(BuildContext context) {
      return  Container(
-       child: Padding(
-         padding: const EdgeInsets.symmetric(horizontal: 16),
+       child:const Padding(
+         padding:  EdgeInsets.symmetric(horizontal: 16),
          child: SingleChildScrollView(
-           child: const  Column(
-             children: [
-               SizedBox(height: 32),
-               Customtextfield(hintext: "Titel"),
-               SizedBox(height: 16),
-               Customtextfield(hintext: "containts",maxline: 5),
-               SizedBox(height: 20),
-               CostumButtom(),
-               SizedBox(height: 20),
-             ],
-           ),
+           child: AddNoteForm(),
          ),
        ),
 
@@ -146,21 +136,78 @@ int i=0;
    }
  }
 
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+
+  final GlobalKey<FormState> formkey =GlobalKey();
+  AutovalidateMode autovalidateMode =AutovalidateMode.disabled;
+  String? title,subtitel;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      autovalidateMode: autovalidateMode,
+  key: formkey,
+      child:  Column(
+        children: [
+          SizedBox(height: 32),
+          Customtextfield(hintext: "Titel",
+
+          onSaved: (value){title=value;}),
+         const SizedBox(height: 16),
+          Customtextfield(hintext: "containts",maxline: 5,
+
+              onSaved:(value)
+                  {subtitel=value;}
+          ),
+         const SizedBox(height: 20),
+          CostumButtom(onTap:() {
+            if(formkey.currentState!.validate()){formkey.currentState!.save();}
+            else {autovalidateMode=AutovalidateMode.always;
+            setState(() {
+
+            });
+
+            }
+          }, ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+}
+
  class Customtextfield extends StatelessWidget {
 
 
 
-    const Customtextfield({super.key,required this.hintext, this.maxline=1});
+    const Customtextfield({super.key,required this.hintext, this.maxline=1, this.onSaved});
 
   final String hintext;
    final int maxline;
-
+    final void Function(String?)? onSaved;
 
    @override
    Widget build(BuildContext context) {
 
-     return TextField(
 
+     return TextFormField(
+       onSaved: onSaved,
+      validator: (value)
+
+      {
+  if(value?.isEmpty ?? true){ return ' Fiels is requird';}
+
+  else {return null;}
+      },
        cursorColor:Kprimarycolor,
        maxLines: maxline,
 
@@ -205,16 +252,21 @@ const Color Kprimarycolor=Color(0xff62FCD7);
 
 
 class  CostumButtom extends StatelessWidget {
-  const  CostumButtom({super.key});
+  const  CostumButtom({super.key, this.onTap});
+
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Kprimarycolor,borderRadius: BorderRadius.circular(16)),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(color: Kprimarycolor,borderRadius: BorderRadius.circular(16)),
 
-      width: MediaQuery.of(context).size.width,
-      height: 60,
-      child:const Center(child: Text(" Add The Note",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),)),
+        width: MediaQuery.of(context).size.width,
+        height: 60,
+        child:const Center(child: Text(" Add The Note",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),)),
+      ),
     );
   }
 }
