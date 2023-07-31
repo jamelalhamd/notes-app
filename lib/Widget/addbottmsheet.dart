@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:tharwat2/Widget/models/models.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
 
@@ -13,31 +14,27 @@ const  Addshowbotomsheet({super.key});
     return Container(
       child:Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
-
-
-          child: BlocConsumer<AddnoteCubit, AddnoteState>(
-            listener: (context, state) {
-              if(state is Addnotesuccess )
-                {
-                  Navigator.pop(context);
-
-                }
-
-              if(state is Addnotefailure )
+        child: BlocConsumer<AddnoteCubit, AddnoteState>(
+          listener: (context, state) {
+            if(state is Addnotesuccess )
               {
-
+                Navigator.pop(context);
 
               }
-            },
-            builder: (context, state) {
-              return ModalProgressHUD
 
-                (
-                  inAsyncCall:state is AddnoteLoading ?true:false ,
-                  child: AddNoteForm());
-            },
-          ),
+            if(state is Addnotefailure )
+            {
+
+
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD
+
+              (
+                inAsyncCall:state is AddnoteLoading ?true:false ,
+                child:const SingleChildScrollView(child: AddNoteForm()));
+          },
         ),
       ),
 
@@ -60,6 +57,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   final GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
   String? title, subtitel;
 
   @override
@@ -86,6 +84,19 @@ class _AddNoteFormState extends State<AddNoteForm> {
           CostumButtom(onTap: () {
             if (formkey.currentState!.validate()) {
               formkey.currentState!.save();
+
+              var notmodels= NoteModel(title: title!,
+                  subtitle:subtitel! ,
+                  color: Colors.blue.value,
+                  date:DateTime.now().toString() ,
+              );
+
+
+
+
+            BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
+             // BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
+
             }
 
             else {

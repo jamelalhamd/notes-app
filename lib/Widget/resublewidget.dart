@@ -236,4 +236,4 @@ class Editviewbody extends StatelessWidget {
 }
 
 
-const KNoteBox='Note Box';
+const kNoteBox='Note Box';
