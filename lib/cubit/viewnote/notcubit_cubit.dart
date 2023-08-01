@@ -10,30 +10,24 @@ class NotcubitCubit extends Cubit<NotcubitState> {
   NotcubitCubit() : super(NotcubitInitial());
 
 
+
+  List<NoteModel>? notes;
+
   fetchAllnotes ()  {
-
-
-
-
-
-
-      try {
-
 
         var notebox=  Hive.box<NoteModel>(kNoteBox);
 
-         List<NoteModel> notes= notebox.values.toList();
-        emit(Notcubitsuceess(notes));
+      notes= notebox.values.toList();
+
+         for(int i=0;i<50;++i)
+           {    print(' the lenght is :  ${notes!.length}');}
+
+      //  emit(Notcubitsuceess(notes!));
 
 
-      } catch (e) {
 
-        emit( Notcubitfailure('the error is :   ${e.toString()}'));
-        for(int i=0; i<50;i++)
-        {
 
-          print('the error is :   ${e.toString()}');
-        }
+
 
 
 
@@ -45,4 +39,4 @@ class NotcubitCubit extends Cubit<NotcubitState> {
     }
 
 
-}
+

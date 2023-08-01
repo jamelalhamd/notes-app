@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tharwat2/Widget/Editnotescreen.dart';
 import 'package:tharwat2/Widget/NotesAppBar.dart';
+import 'package:tharwat2/Widget/models/models.dart';
+import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
 
 class SearchCustomIcon extends StatelessWidget {
 
@@ -99,12 +102,21 @@ class  Notelistview extends StatelessWidget {
 int i=0;
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return  BlocBuilder<NotcubitCubit, NotcubitState>(
+
+
+  builder: (context, state) {
+   BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
+    List<NoteModel > notes =BlocProvider.of<NotcubitCubit>(context).notes?? [];
+
+    return Padding(
       padding:  EdgeInsets.symmetric( vertical: 16),
       child: ListView.builder(
+
        padding: EdgeInsets.zero,
 
-        itemCount: 50,
+        itemCount:notes.length,
+        //state is Notcubitsuceess ? state.notes.length:3,
 
 
           itemBuilder: (context, index) =>Padding(
@@ -115,6 +127,8 @@ int i=0;
 
       ),
     );
+  },
+);
   }
 }
 

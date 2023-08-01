@@ -38,10 +38,10 @@ class NoteHome extends StatelessWidget {
       );
   }
 
-  ,
 
-  );
-}
 
 
 }
+
+
+
