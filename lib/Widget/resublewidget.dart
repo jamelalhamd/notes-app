@@ -46,7 +46,7 @@ class NoteListvieItem extends StatelessWidget {
       },
       child: Container(
         padding:EdgeInsets.only(top:24,bottom: 24,left: 16 ) ,
-        decoration: BoxDecoration(color: Color(0xffFFCC80),
+        decoration: BoxDecoration(color: Color(note.color),
         borderRadius: BorderRadius.circular(16),
 
 
