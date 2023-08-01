@@ -13,28 +13,29 @@ class Addshowbotomsheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
 
-    create: (context) => AddnoteCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: BlocConsumer<AddnoteCubit, AddnoteState>(
-          listener: (context, state) {
-            if (state is Addnotesuccess) {
-              Navigator.pop(context);
-            }
+      create: (context) => AddnoteCubit(),
+      child: BlocConsumer<AddnoteCubit, AddnoteState>(
+        listener: (context, state) {
+          if (state is Addnotesuccess) {
+            Navigator.pop(context);
+          }
 
-            if (state is Addnotefailure) {
+          if (state is Addnotefailure) {
 
 
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddnoteLoading ?true:false,
 
-              (
-                inAsyncCall: state is AddnoteLoading ? true : false,
-                child: const SingleChildScrollView(child: AddNoteForm()));
-          },
-        ),
+            child: Padding(
+
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const SingleChildScrollView(child: AddNoteForm()),
+            ),
+          );
+        },
       ),
     );
   }
@@ -78,27 +79,35 @@ class _AddNoteFormState extends State<AddNoteForm> {
               }
           ),
           const SizedBox(height: 20),
-          CostumButtom(onTap: () {
-            if (formkey.currentState!.validate()) {
-              formkey.currentState!.save();
-
-              var notmodels = NoteModel(title: title!,
-                subtitle: subtitel!,
-                color: Colors.blue.value,
-                date: DateTime.now().toString(),
-              );
 
 
-              BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
-            }
+          BlocBuilder<AddnoteCubit, AddnoteState>(
+            builder: (context, state) {
+              return CostumButtom(
+                isloding:state is AddnoteLoading ? true:false,
+                onTap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
 
-            else {
-              autovalidateMode = AutovalidateMode.always;
-              setState(() {
+                    var notmodels = NoteModel(title: title!,
+                      subtitle: subtitel!,
+                      color: Colors.blue.value,
+                      date: DateTime.now().toString(),
+                    );
 
-              });
-            }
-          },),
+
+                    BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
+                  }
+
+                  else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {
+
+                    });
+                  }
+                },);
+            },
+          ),
           const SizedBox(height: 20),
         ],
       ),
