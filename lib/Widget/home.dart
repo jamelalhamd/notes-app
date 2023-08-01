@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tharwat2/Widget/NotesBody.dart';
 import 'package:tharwat2/Widget/addbottmsheet.dart';
+import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
 
 
 class NoteHome extends StatelessWidget {
@@ -11,34 +13,35 @@ class NoteHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
-    Scaffold(
+      BlocProvider(
+        create: (context) => NotcubitCubit(),
+        child: Scaffold(
 
-      body: NotesBody(),
-      floatingActionButton: FloatingActionButton(
-
-
-
-        onPressed: ()
-      {
+            body: NotesBody(),
+            floatingActionButton: FloatingActionButton(
 
 
-        showModalBottomSheet(
-          isScrollControlled: true,
-          shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
 
-          ) ,
-          context: context, builder: (context) =>
-        Addshowbotomsheet(),);
+                  ),
+                  context: context, builder: (context) =>
+                    Addshowbotomsheet(),);
+              },
+              child: Icon(Icons.add),)
 
 
-
-      },
-      child: Icon(Icons.add),)
-
-
-    );
-
+        ),
+      );
   }
+
+  ,
+
+  );
+}
 
 
 }
