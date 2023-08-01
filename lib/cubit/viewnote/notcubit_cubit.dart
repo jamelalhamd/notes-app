@@ -21,8 +21,7 @@ class NotcubitCubit extends Cubit<NotcubitState> {
 
          for(int i=0;i<50;++i)
            {    print(' the lenght is :  ${notes!.length}');}
-
-      //  emit(Notcubitsuceess(notes!));
+ emit(Notcubitsuceess(notes!));
 
 
 

@@ -33,7 +33,9 @@ double width;
 
 
 class NoteListvieItem extends StatelessWidget {
-  const NoteListvieItem({super.key});
+  const NoteListvieItem({super.key, required this.note});
+
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +62,11 @@ class NoteListvieItem extends StatelessWidget {
 
               title: Padding(
                 padding: const EdgeInsets.only(top: 16,bottom: 16),
-                child: Text('Flutter Tips',style: TextStyle(color: Colors.black,fontFamily:'Poppins' ,fontSize: 25 )),
+                child: Text(note.title,style: TextStyle(color: Colors.black,fontFamily:'Poppins' ,fontSize: 25 )),
               ),
               subtitle:
 
-              Text('Build your carres with jamel alhamd',style: TextStyle(color: Colors.black.withOpacity(0.5),fontSize: 18)),
+              Text(note.subtitle,style: TextStyle(color: Colors.black.withOpacity(0.5),fontSize: 18)),
               trailing:IconButton(onPressed:(){},
 
                 icon: Icon(Icons.delete,color: Colors.black,size: 30),
@@ -76,7 +78,7 @@ class NoteListvieItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: Text('Janyary 23,2023',style: TextStyle(
+              child: Text(note.date,style: TextStyle(
                   fontSize: 18,
                   color: Colors.black.withOpacity(.5))),
             )
@@ -121,7 +123,7 @@ int i=0;
 
           itemBuilder: (context, index) =>Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
-            child: NoteListvieItem(),
+            child: NoteListvieItem(note: notes[index],),
           ) ,
 
 

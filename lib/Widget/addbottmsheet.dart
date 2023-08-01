@@ -4,6 +4,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:tharwat2/Widget/models/models.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
+import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
 
 class Addshowbotomsheet extends StatelessWidget {
   const Addshowbotomsheet({super.key});
@@ -97,6 +98,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
 
                     BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
+                   BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
                   }
 
                   else {

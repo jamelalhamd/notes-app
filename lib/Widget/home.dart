@@ -15,6 +15,7 @@ class NoteHome extends StatelessWidget {
 
       BlocProvider(
         create: (context) => NotcubitCubit(),
+
         child: Scaffold(
 
             body: NotesBody(),
