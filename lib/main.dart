@@ -14,7 +14,6 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(NoteModelAdapter());
- // await Hive.openBox<AddnoteCubit>(kNoteBox);
   await Hive.openBox<NoteModel>(kNoteBox);
   Bloc.observer=SimpleBlockObserver();
 
@@ -32,35 +31,27 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddnoteCubit(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
 
-        ),
-
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-
-        theme: ThemeData(
+      theme: ThemeData(
 
 
-            brightness: Brightness.dark,
-            fontFamily: 'ssets/fonts/Poppins-Regular.ttf'
+          brightness: Brightness.dark,
+          fontFamily: 'ssets/fonts/Poppins-Regular.ttf'
 
-        ),
-        home:
+      ),
+      home:
 
-        Scaffold(
+      Scaffold(
 
-          body: NoteHome(),
-
-
-        ),
+        body: NoteHome(),
 
 
       ),
+
+
     );
   }
 }

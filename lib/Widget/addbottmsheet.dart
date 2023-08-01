@@ -6,24 +6,23 @@ import 'package:tharwat2/Widget/resublewidget.dart';
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
 
 class Addshowbotomsheet extends StatelessWidget {
-const  Addshowbotomsheet({super.key});
+  const Addshowbotomsheet({super.key});
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:Padding(
+    return BlocProvider(
+
+    create: (context) => AddnoteCubit(),
+      child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: BlocConsumer<AddnoteCubit, AddnoteState>(
           listener: (context, state) {
-            if(state is Addnotesuccess )
-              {
-                Navigator.pop(context);
+            if (state is Addnotesuccess) {
+              Navigator.pop(context);
+            }
 
-              }
-
-            if(state is Addnotefailure )
-            {
+            if (state is Addnotefailure) {
 
 
             }
@@ -32,13 +31,11 @@ const  Addshowbotomsheet({super.key});
             return ModalProgressHUD
 
               (
-                inAsyncCall:state is AddnoteLoading ?true:false ,
-                child:const SingleChildScrollView(child: AddNoteForm()));
+                inAsyncCall: state is AddnoteLoading ? true : false,
+                child: const SingleChildScrollView(child: AddNoteForm()));
           },
         ),
       ),
-
-
     );
   }
 }
@@ -85,18 +82,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
             if (formkey.currentState!.validate()) {
               formkey.currentState!.save();
 
-              var notmodels= NoteModel(title: title!,
-                  subtitle:subtitel! ,
-                  color: Colors.blue.value,
-                  date:DateTime.now().toString() ,
+              var notmodels = NoteModel(title: title!,
+                subtitle: subtitel!,
+                color: Colors.blue.value,
+                date: DateTime.now().toString(),
               );
 
 
-
-
-            BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
-             // BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
-
+              BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
             }
 
             else {
