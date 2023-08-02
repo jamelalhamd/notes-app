@@ -32,7 +32,7 @@ class _EditviewbodyState extends State<Editviewbody> {
 
               widget.notes.title=titel?? widget.notes.title;
               widget.notes.subtitle=content ?? widget.notes.subtitle;
-             // widget.notes.save();
+            //widget.notes.save();
              // BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
               Navigator.pop(context);
 
