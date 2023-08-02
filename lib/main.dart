@@ -5,7 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 
 import 'package:tharwat2/Widget/home.dart';
 import 'package:tharwat2/Widget/models/models.dart';
-import 'package:tharwat2/Widget/resublewidget.dart';
+
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
 import 'package:tharwat2/cubit/simpe_bloc_observer.dart';
 import 'package:tharwat2/widgetview/constant.dart';

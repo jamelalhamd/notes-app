@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tharwat2/Widget/models/models.dart';
-import 'package:tharwat2/Widget/resublewidget.dart';
+
 import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
 import 'package:tharwat2/widgetview/listview_item.dart';
 
