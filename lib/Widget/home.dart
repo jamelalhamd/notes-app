@@ -13,29 +13,25 @@ class NoteHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
-      BlocProvider(
-        create: (context) => NotcubitCubit(),
+      Scaffold(
 
-        child: Scaffold(
-
-            body: NotesBody(),
-            floatingActionButton: FloatingActionButton(
+          body: NotesBody(),
+          floatingActionButton: FloatingActionButton(
 
 
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
 
-                  ),
-                  context: context, builder: (context) =>
-                    Addshowbotomsheet(),);
-              },
-              child: Icon(Icons.add),)
+                ),
+                context: context, builder: (context) =>
+                  Addshowbotomsheet(),);
+            },
+            child: Icon(Icons.add),)
 
 
-        ),
       );
   }
 

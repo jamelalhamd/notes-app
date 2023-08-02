@@ -22,6 +22,7 @@ class Addshowbotomsheet extends StatelessWidget {
         listener: (context, state) {
           if (state is Addnotesuccess) {
             Navigator.pop(context);
+            //BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
           }
 
           if (state is Addnotefailure) {
@@ -104,7 +105,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
 
                     BlocProvider.of<AddnoteCubit>(context).addNote(notmodels);
-                   BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
+              BlocProvider.of<NotcubitCubit>(context).fetchAllnotes();
                   }
 
                   else {

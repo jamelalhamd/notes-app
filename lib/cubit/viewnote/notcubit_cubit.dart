@@ -20,8 +20,7 @@ class NotcubitCubit extends Cubit<NotcubitState> {
 
       notes= notebox.values.toList();
 
-         for(int i=0;i<50;++i)
-           {    print(' the lenght is :  ${notes!.length}');}
+
  emit(Notcubitsuceess(notes!));
 
 
