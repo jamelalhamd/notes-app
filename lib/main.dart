@@ -6,8 +6,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:tharwat2/Widget/home.dart';
 import 'package:tharwat2/Widget/models/models.dart';
 
-
-import 'package:tharwat2/cubit/simpe_bloc_observer.dart';
 import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
 import 'package:tharwat2/widgetview/constant.dart';
 
@@ -16,7 +14,7 @@ void main() async {
 
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNoteBox);
-  Bloc.observer=SimpleBlockObserver();
+ // Bloc.observer=SimpleBlockObserver();
 
 
   // the model generated//const KNoteBox='Note Box'; in const page

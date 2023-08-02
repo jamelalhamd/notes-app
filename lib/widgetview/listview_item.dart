@@ -14,7 +14,7 @@ class NoteListvieItem extends StatelessWidget {
     return  GestureDetector(
       onTap: (){
 
-        Navigator.push(context,MaterialPageRoute(builder: (context) =>Editnoteview() ,));
+        Navigator.push(context,MaterialPageRoute(builder: (context) =>Editnoteview( note: note) ,));
       },
       child: Container(
         padding:EdgeInsets.only(top:24,bottom: 24,left: 16 ) ,
