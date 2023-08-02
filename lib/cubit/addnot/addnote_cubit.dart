@@ -3,6 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:meta/meta.dart';
 import 'package:tharwat2/Widget/models/models.dart';
 import 'package:tharwat2/Widget/resublewidget.dart';
+import 'package:tharwat2/widgetview/constant.dart';
 
 part 'addnote_state.dart';
 

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:intl/intl.dart';
+
 import 'package:tharwat2/Widget/models/models.dart';
-import 'package:tharwat2/Widget/resublewidget.dart';
+
 import 'package:tharwat2/cubit/addnot/addnote_cubit.dart';
 import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
+import 'package:tharwat2/widgetview/custombutton.dart';
+import 'package:tharwat2/widgetview/textfield.dart';
 
 class Addshowbotomsheet extends StatelessWidget {
   const Addshowbotomsheet({super.key});
@@ -89,11 +92,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
+                    var currentdate=DateTime.now();
 
+                    // var formatedcurrentdate=DateFormat.yMd().format(currentdate);
+                    var formatedcurrentdate=DateFormat('dd.M.yyyy').format(currentdate);
                     var notmodels = NoteModel(title: title!,
                       subtitle: subtitel!,
                       color: Colors.blue.value,
-                      date: DateTime.now().toString(),
+                      date: formatedcurrentdate,
                     );
 
 
