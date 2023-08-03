@@ -12,7 +12,7 @@ part 'addnote_state.dart';
 class AddnoteCubit extends Cubit<AddnoteState> {
   AddnoteCubit() : super(AddnoteInitial());
 
-  Color? color=Color(0xffAC1);
+  Color? color=Color(0xff90DBF4);
 
 
   addNote(NoteModel note)

@@ -92,14 +92,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
                     var currentdate = DateTime.now();
-
+                          var color=BlocProvider.of<AddnoteCubit>(context).color;
                     // var formatedcurrentdate=DateFormat.yMd().format(currentdate);
                     var formatedcurrentdate =
                         DateFormat('dd.M.yyyy').format(currentdate);
                     var notmodels = NoteModel(
                       title: title!,
                       subtitle: subtitel!,
-                      color: Colors.blue.value,
+                      color: color!.value,
                       date: formatedcurrentdate,
                     );
 
