@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:tharwat2/Widget/NotesAppBar.dart';
 import 'package:tharwat2/Widget/models/models.dart';
-import 'package:tharwat2/cubit/viewnote/notcubit_cubit.dart';
+
+import 'package:tharwat2/widgetview/colors_listview.dart';
 
 import 'package:tharwat2/widgetview/textfield.dart';
 
@@ -55,6 +56,8 @@ class _EditviewbodyState extends State<Editviewbody> {
 
                 },
               hintext:  widget.notes.subtitle,maxline: 5),
+          SizedBox(height: 8),
+          ColorsListview(),
 
 
         ],
